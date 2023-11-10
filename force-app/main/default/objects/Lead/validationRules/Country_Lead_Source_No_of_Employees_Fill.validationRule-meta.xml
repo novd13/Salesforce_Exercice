@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Country_Lead_Source_No_of_Employees_Fill</fullName>
+    <active>true</active>
+    <description>Country, Lead Source, No of Employees must be filled in. This
+applies for all profiles except of System Administrator and Contract Manager profiles do not need to fill in the No of Employees and System Administrator profile also need not to fill country.</description>
+    <errorConditionFormula>OR(
+    AND(
+        ISBLANK(Country),
+        ISBLANK(TEXT(LeadSource)),
+        ISBLANK(TEXT(NumberOfEmployees)),
+        NOT(
+            AND(
+                $Profile.Name = &quot;System Administrator&quot;,
+                $Profile.Name = &quot;Contract Manager&quot;
+            )
+        )
+    ),
+    AND(
+        ISBLANK(Country),
+        ISBLANK(TEXT(LeadSource)),
+        $Profile.Name = &quot;Contract Manager&quot;
+    ),
+    AND(
+        ISBLANK(TEXT(LeadSource)),
+        $Profile.Name = &quot;System Administrator&quot;
+    )
+)</errorConditionFormula>
+    <errorMessage>Country, Lead Source, Number of Employees must be filled in.
+Contract Manager must fill in Country and Lead Source at least. 
+Admins must fill in Lead Source at least.</errorMessage>
+</ValidationRule>

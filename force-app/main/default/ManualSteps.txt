@@ -5,3 +5,12 @@ Click Schedule Apex.
 Enter a job name, and then select UpdateCountriesBatch. 
 Schedule daily, preferably to run during the night.
 Save.
+
+
+Unfortunately, after test deployment it seems the System Admin still does not have edit access to all new fields, thus>
+From Setup, in the Quick Find box, enter Profiles, and then select Profiles.
+Find System Administrator.
+In the section Field-Level Security find the Lead object.
+Add edit access to the Owner Since field.
+Then in the In the section Field-Level Security find the custom Country object.
+Add edit access to all the fields.

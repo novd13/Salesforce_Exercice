@@ -1,1 +1,7 @@
+After deployment
 
+From Setup, in the Quick Find box, enter Apex Classes, and then select Apex Classes.
+Click Schedule Apex.
+Enter a job name, and then select UpdateCountriesBatch. 
+Schedule daily, preferably to run during the night.
+Save.
